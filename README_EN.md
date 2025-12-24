@@ -1,8 +1,9 @@
-# Claude DevContainer Setup
+# Claude DevContainer Setup - Kiro Power
 
-> Quickly set up and launch Claude Code development container environment with complete DevContainer configuration and automation scripts
+> A Kiro Power for quickly setting up and launching Claude Code development container environment with complete DevContainer configuration and automation scripts
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Kiro Power](https://img.shields.io/badge/Kiro-Power-blue.svg)](https://kiro.ai/)
 [![Docker](https://img.shields.io/badge/Docker-Required-blue.svg)](https://www.docker.com/)
 [![Node.js](https://img.shields.io/badge/Node.js-20+-green.svg)](https://nodejs.org/)
 
@@ -11,9 +12,9 @@ English | [繁體中文](README.md)
 ## 📋 Table of Contents
 
 - [Overview](#overview)
+- [Installing the Power](#installing-the-power)
 - [Features](#features)
 - [Prerequisites](#prerequisites)
-- [Quick Start](#quick-start)
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [Troubleshooting](#troubleshooting)
@@ -22,7 +23,59 @@ English | [繁體中文](README.md)
 
 ## 🎯 Overview
 
-Claude DevContainer Setup is a complete development container solution designed specifically for Claude Code development environments. It provides a pre-configured Docker environment with built-in Claude Code CLI, development tools, secure firewall settings, and automated container management scripts.
+Claude DevContainer Setup is a **Kiro Power** - a complete development container solution designed specifically for Claude Code development environments. It provides a pre-configured Docker environment with built-in Claude Code CLI, development tools, secure firewall settings, and automated container management scripts.
+
+## 🛠️ Installation
+
+### Via Kiro Powers UI (Recommended)
+
+1. Open Powers panel in Kiro IDE
+2. Click "Add Custom Power" → "Import power from GitHub" and enter:
+   ```
+   https://github.com/chinlung/kiro-claude-devcontainer-power/tree/main/claude-devcontainer
+   ```
+3. Click "Add" and install the Power
+
+### Local Installation
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/chinlung/kiro-claude-devcontainer-power.git
+   ```
+
+2. Add local directory in Kiro Powers UI:
+   - Open Powers panel in Kiro IDE
+   - Click "Add Custom Power"
+   - Select "Import power from a folder"
+   - Choose path: `/path/to/kiro-claude-devcontainer-power/claude-devcontainer`
+
+## 📖 Usage
+
+### Quick Start
+
+1. **After installing the Power**, activate it in Kiro:
+   ```
+   Call action "activate" with powerName="claude-devcontainer"
+   ```
+
+2. **Start using**:
+   - "Help me set up a Claude DevContainer environment"
+   - "Create a new Claude DevContainer project"
+   - "Start Claude DevContainer"
+   - "I need a Claude Code development environment"
+
+### Detailed Documentation
+
+After installing the Power, you can access complete documentation through:
+
+- **Main Documentation**: `Call action "activate" with powerName="claude-devcontainer"`
+- **Usage Guide**: Check `claude-devcontainer/POWER.md` for detailed instructions
+
+**Kiro will automatically:**
+- Check prerequisites
+- Create `.devcontainer` configuration files
+- Start DevContainer
+- Verify Claude Code CLI installation
 
 ## ✨ Features
 
@@ -52,58 +105,46 @@ docker --version
 
 ## 🚀 Quick Start
 
-### Method 1: Using Existing Project
+### Using Kiro Power (Recommended)
 
-If your project already has `.devcontainer` configuration:
+1. **Ensure the Power is installed** (see installation instructions above)
 
-```bash
-# 1. Navigate to project directory
-cd your-project
+2. **Ask Kiro for help**
+   ```
+   Please help me create a Claude DevContainer environment
+   ```
 
-# 2. Start DevContainer
-devcontainer up --workspace-folder .
+3. **Kiro will automatically:**
+   - Check prerequisites
+   - Create `.devcontainer` configuration files
+   - Start DevContainer
+   - Verify Claude Code CLI installation
 
-# 3. Enter container
-devcontainer exec --workspace-folder . zsh
+### Manual Usage (Advanced Users)
 
-# 4. Verify Claude Code CLI
-claude --version
-```
-
-### Method 2: Create New DevContainer Project
-
-```bash
-# 1. Create .devcontainer directory
-mkdir .devcontainer
-
-# 2. Copy configuration files (refer to claude-devcontainer/POWER.md)
-# Create devcontainer.json, Dockerfile, init-firewall.sh
-
-# 3. Start container
-devcontainer up --workspace-folder .
-devcontainer exec --workspace-folder . zsh
-```
+If you want to operate manually or understand the technical details:
 
 ## 📖 Usage
 
-### Using with VS Code
+### Using via Kiro (Recommended)
 
-1. Install "Dev Containers" extension
-2. Open project: `code .`
-3. Press `Cmd+Shift+P` and select "Dev Containers: Reopen in Container"
+This Power is designed to be used through the Kiro AI assistant, providing intelligent DevContainer management:
 
-### Command Line Usage
+**Common Command Examples:**
+- "Create a new Claude DevContainer project"
+- "Start my DevContainer environment"
+- "Check if Claude Code CLI is working properly"
+- "Help me solve DevContainer issues"
+- "Update DevContainer configuration"
 
-```bash
-# Start container
-devcontainer up --workspace-folder .
+**Kiro will automatically:**
+- Detect your system environment
+- Install necessary dependency tools
+- Create appropriate configuration files
+- Handle common setup issues
+- Provide personalized troubleshooting advice
 
-# Enter container
-devcontainer exec --workspace-folder . zsh
-
-# Stop container
-devcontainer down --workspace-folder .
-```
+### Direct DevContainer Usage
 
 ## ⚙️ Configuration
 

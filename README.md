@@ -1,8 +1,9 @@
-# Claude DevContainer Setup
+# Claude DevContainer Setup - Kiro Power
 
-> 快速設定和啟動 Claude Code 開發容器環境，包含完整的 DevContainer 配置和自動化腳本
+> 快速設定和啟動 Claude Code 開發容器環境的 Kiro Power，包含完整的 DevContainer 配置和自動化腳本
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Kiro Power](https://img.shields.io/badge/Kiro-Power-blue.svg)](https://kiro.ai/)
 [![Docker](https://img.shields.io/badge/Docker-Required-blue.svg)](https://www.docker.com/)
 [![Node.js](https://img.shields.io/badge/Node.js-20+-green.svg)](https://nodejs.org/)
 
@@ -11,9 +12,9 @@
 ## 📋 目錄
 
 - [概述](#概述)
+- [安裝 Power](#安裝-power)
 - [功能特色](#功能特色)
 - [前置需求](#前置需求)
-- [快速開始](#快速開始)
 - [使用方式](#使用方式)
 - [配置說明](#配置說明)
 - [故障排除](#故障排除)
@@ -22,7 +23,59 @@
 
 ## 🎯 概述
 
-Claude DevContainer Setup 是一個完整的開發容器解決方案，專為 Claude Code 開發環境設計。它提供了預配置的 Docker 環境，內建 Claude Code CLI、開發工具、安全的防火牆設定，以及自動化的容器管理腳本。
+Claude DevContainer Setup 是一個 **Kiro Power**，專為 Claude Code 開發環境設計的完整開發容器解決方案。它提供了預配置的 Docker 環境，內建 Claude Code CLI、開發工具、安全的防火牆設定，以及自動化的容器管理腳本。
+
+## 🛠️ 安裝方式
+
+### 透過 Kiro Powers UI（推薦）
+
+1. 在 Kiro IDE 中開啟 Powers 面板
+2. 點擊 "Add Custom Power" → "Import power from GitHub" 並輸入：
+   ```
+   https://github.com/chinlung/kiro-claude-devcontainer-power/tree/main/claude-devcontainer
+   ```
+3. 點擊 "Add" 並安裝 Power
+
+### 本地安裝
+
+1. Clone 此 repository：
+   ```bash
+   git clone https://github.com/chinlung/kiro-claude-devcontainer-power.git
+   ```
+
+2. 在 Kiro Powers UI 中新增本地目錄：
+   - 在 Kiro IDE 中開啟 Powers 面板
+   - 點擊 "Add Custom Power"
+   - 選擇 "Import power from a folder"
+   - 選擇路徑：`/path/to/kiro-claude-devcontainer-power/claude-devcontainer`
+
+## 📖 使用方式
+
+### 快速開始
+
+1. **安裝 Power** 後，在 Kiro 中激活：
+   ```
+   Call action "activate" with powerName="claude-devcontainer"
+   ```
+
+2. **開始使用**：
+   - 「幫我設定 Claude DevContainer 環境」
+   - 「建立新的 Claude DevContainer 專案」
+   - 「啟動 Claude DevContainer」
+   - 「我需要 Claude Code 的開發環境」
+
+### 詳細文檔
+
+Power 安裝後，您可以透過以下方式存取完整文檔：
+
+- **主要文檔**：`Call action "activate" with powerName="claude-devcontainer"`
+- **使用指南**：查看 `claude-devcontainer/POWER.md` 獲得詳細說明
+
+**Kiro 會自動為您：**
+- 檢查前置需求
+- 建立 `.devcontainer` 配置檔案
+- 啟動 DevContainer
+- 驗證 Claude Code CLI 安裝
 
 ## ✨ 功能特色
 
@@ -51,6 +104,25 @@ docker --version
 ```
 
 ## 🚀 快速開始
+
+### 使用 Kiro Power（推薦方式）
+
+1. **確保已安裝此 Power**（參考上方安裝說明）
+
+2. **在 Kiro 中請求協助**
+   ```
+   請幫我建立一個 Claude DevContainer 環境
+   ```
+
+3. **Kiro 會自動為您：**
+   - 檢查前置需求
+   - 建立 `.devcontainer` 配置檔案
+   - 啟動 DevContainer
+   - 驗證 Claude Code CLI 安裝
+
+### 手動使用（進階用戶）
+
+如果您想要手動操作或了解背後的技術細節：
 
 ### 方法一：使用現有專案
 
@@ -85,6 +157,26 @@ devcontainer exec --workspace-folder . zsh
 ```
 
 ## 📖 使用方式
+
+### 透過 Kiro 使用（推薦）
+
+這個 Power 設計為透過 Kiro AI 助手使用，提供智慧化的 DevContainer 管理：
+
+**常用指令範例：**
+- 「建立新的 Claude DevContainer 專案」
+- 「啟動我的 DevContainer 環境」
+- 「檢查 Claude Code CLI 是否正常運作」
+- 「幫我解決 DevContainer 的問題」
+- 「更新 DevContainer 配置」
+
+**Kiro 會自動：**
+- 檢測您的系統環境
+- 安裝必要的依賴工具
+- 建立適合的配置檔案
+- 處理常見的設定問題
+- 提供個人化的故障排除建議
+
+### 直接使用 DevContainer
 
 ### 在 VS Code 中使用
 
