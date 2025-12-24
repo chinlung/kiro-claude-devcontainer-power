@@ -376,11 +376,14 @@ claude --version
    echo "Processing GitHub IPs..."
    while read -r cidr; do
        if [[ ! "$cidr" =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/[0-9]{1,2}$ ]]; then
-           echo "ERROR: Invalid CIDR range from GitHub meta: $cidr"
-           exit 1
+           echo "WARNING: Invalid CIDR range from GitHub meta: $cidr, skipping..."
+           continue
        fi
        echo "Adding GitHub range $cidr"
-       ipset add allowed-domains "$cidr"
+       ipset add allowed-domains "$cidr" || {
+           echo "WARNING: Failed to add GitHub range $cidr to ipset, skipping..."
+           continue
+       }
    done < <(echo "$gh_ranges" | jq -r '(.web + .api + .git)[]' | aggregate -q)
 
    # Resolve and add other allowed domains
@@ -396,17 +399,20 @@ claude --version
        echo "Resolving $domain..."
        ips=$(dig +noall +answer A "$domain" | awk '$4 == "A" {print $5}')
        if [ -z "$ips" ]; then
-           echo "ERROR: Failed to resolve $domain"
-           exit 1
+           echo "WARNING: Failed to resolve $domain, skipping..."
+           continue
        fi
        
        while read -r ip; do
            if [[ ! "$ip" =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
-               echo "ERROR: Invalid IP from DNS for $domain: $ip"
-               exit 1
+               echo "WARNING: Invalid IP from DNS for $domain: $ip, skipping..."
+               continue
            fi
            echo "Adding $ip for $domain"
-           ipset add allowed-domains "$ip"
+           ipset add allowed-domains "$ip" || {
+               echo "WARNING: Failed to add $ip for $domain to ipset, skipping..."
+               continue
+           }
        done < <(echo "$ips")
    done
 
